@@ -228,9 +228,9 @@ function generic(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "Image from imgur",
+                    "title": "Deadlift",
                     "subtitle": "Subtitle",
-                    "image_url": "https://i.imgur.com/ogP3C45.jpg",
+                    "image_url": "https://i.imgur.com/FCTSI9J.jpg",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.altinget.dk",
