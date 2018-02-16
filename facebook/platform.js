@@ -243,7 +243,7 @@ function generic(sender) {
                 }, {
                     "title": "HIIT Cardio",
                     "subtitle": "Health",
-                    "image_url": "https://i.imgur.com/undefined.jpg",
+                    "image_url": "https://i.imgur.com/dNo2ZB5.jpg",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.altinget.dk",
