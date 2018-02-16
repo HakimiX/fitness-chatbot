@@ -230,7 +230,7 @@ function generic(sender) {
                 "elements": [{
                     "title": "Image from imgur",
                     "subtitle": "Subtitle",
-                    "image_url": "https://imgur.com/a/gCmr6",
+                    "image_url": "https://i.imgur.com/ogP3C45.jpg",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.altinget.dk",
