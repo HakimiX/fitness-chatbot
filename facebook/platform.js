@@ -229,25 +229,25 @@ function generic(sender) {
                 "template_type": "generic",
                 "elements": [{
                     "title": "Deadlift",
-                    "subtitle": "Subtitle",
+                    "subtitle": "Compound Movement",
                     "image_url": "https://i.imgur.com/FCTSI9J.jpg",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.altinget.dk",
-                        "title": "Læs mere"
+                        "title": "Read more"
                     }, {
                         "type": "postback",
                         "title": "Postback",
                         "payload": "Payload for first element in a generic bubble",
                     }],
                 }, {
-                    "title": "ArticleBodyObj[3].Headline",
-                    "subtitle": "ArticleBodyObj[3].CreateTime",
-                    "image_url": "https://www.altinget.dk/images/article/149596/25201.jpg",
+                    "title": "HIIT Cardio",
+                    "subtitle": "Health",
+                    "image_url": "https://i.imgur.com/undefined.jpg",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.altinget.dk",
-                        "title": "Læs mere",
+                        "title": "Read more",
                     }, {
                         "type": "postback",
                         "title": "Postback",
