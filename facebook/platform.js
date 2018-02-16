@@ -218,7 +218,61 @@ function sendHelp(sender) {
           console.log('Error: ', response.body.error)
       }
   })
-  }
+}
+
+
+function generic(sender) {
+    let messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "Image from imgur",
+                    "subtitle": "Subtitle",
+                    "image_url": "https://imgur.com/a/gCmr6",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://www.altinget.dk",
+                        "title": "Læs mere"
+                    }, {
+                        "type": "postback",
+                        "title": "Postback",
+                        "payload": "Payload for first element in a generic bubble",
+                    }],
+                }, {
+                    "title": "ArticleBodyObj[3].Headline",
+                    "subtitle": "ArticleBodyObj[3].CreateTime",
+                    "image_url": "https://www.altinget.dk/images/article/149596/25201.jpg",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://www.altinget.dk",
+                        "title": "Læs mere",
+                    }, {
+                        "type": "postback",
+                        "title": "Postback",
+                        "payload": "Payload for second element in a generic bubble",
+                    }],
+                }]
+            }
+        }
+    }
+    request({
+        url: 'https://graph.facebook.com/v2.11/me/messages',
+        qs: {access_token:token},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+}
 
 
 module.exports.sendHelp = sendHelp;  
@@ -226,3 +280,4 @@ module.exports.sendPersonsMessage = sendPersonsMessage;
 module.exports.sendText = sendText;
 module.exports.sendMessage2 = sendMessage2;
 module.exports.sendArticleMessage = sendArticleMessage;
+module.exports.generic = generic;
