@@ -13,6 +13,9 @@ var mysql = require('mysql');
 
 var token = "EAACptFlfBuIBAPyZAEhU1qt6gaSy3RenZAGlhJiwmkMw5qTJCNvgfkUmFDIAAjhOMIZAZCzA9WnsEXiKFAGKHmY3j6ZAzKeLx24CE7JLZCMiWHSuxw9s42rmBZAU5MJdPOE0OUaoF8HqnzZAZB4c1imEpc0wf0wunMViTUNcc1BLVlwOZBopIWRVlt";
 
+// WIT AI
+var wit_endpoint = 'https://api.wit.ai/message?v=12032018&q=';
+var wit_token = 'D7FKRWLJRNYUKEACKGENJQG7EOLISSMJ';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -37,9 +40,6 @@ router.post('/webhook/', function (req, res) {
       text = event.message.text;
       
       switch(text) {
-        case "hej":
-          platform.sendText(sender, "virker");
-          break;
         case "artikler":
           api.getArticles();
           timers.setTimeout(() => platform.sendArticleMessage(sender), 2000);
@@ -67,6 +67,44 @@ router.post('/webhook/', function (req, res) {
   res.sendStatus(200);
 });
 
+
+// WIT AI Connection
+function callWithAI(query, callback) {
+  query = encodeURIComponent(query);
+  request({
+      uri: wit_endpoint + query,
+      qs: { access_token: wit_token },
+      method: 'GET'
+  }, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+          console.log('Successfully got %s', response.body);
+          try {
+              body = JSON.parse(response.body)
+              intent = body['entities']['intent'][0]['value']
+              callback(null, intent)
+          } catch (e) {
+              callback(e)
+          }
+      } else {
+          console.log(response.statusCode)
+          console.error("Unable to send message. %s", error);
+          callback(error)
+      }
+  });
+}
+
+
+// WIT AI Intents
+function handleIntent(intent, sender) {
+  switch (intent) {
+      case "greeting":
+          platform.sendText(sender, "Hi! how can i help you?");
+          break;
+      default:
+          fbapi.sendWitDefault(sender);
+          break;
+  }
+}
 
 
 module.exports = router;
