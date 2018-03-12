@@ -52,9 +52,6 @@ router.post('/webhook/', function (req, res) {
         case "stop":
           platform.sendText(sender, "jeg stopper");
           break;
-        case "help":
-          platform.sendHelp(sender);
-          break;
         default:
           callWithAI(text, function (err, intent) {
             handleIntent(intent, sender);
@@ -105,8 +102,11 @@ function handleIntent(intent, sender) {
     case "greeting":
       platform.sendText(sender, "Hi! how can i help you?");
       break;
+    case "help":
+      platform.sendText(sener, "I am here to help!");
+      break;
     default:
-      fbapi.sendWitDefault(sender);
+      platform.sendText(sender, "I don't understand :(");
       break;
   }
 }
