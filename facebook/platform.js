@@ -1,6 +1,6 @@
 var request = require('request');
 var token = "EAACptFlfBuIBAPyZAEhU1qt6gaSy3RenZAGlhJiwmkMw5qTJCNvgfkUmFDIAAjhOMIZAZCzA9WnsEXiKFAGKHmY3j6ZAzKeLx24CE7JLZCMiWHSuxw9s42rmBZAU5MJdPOE0OUaoF8HqnzZAZB4c1imEpc0wf0wunMViTUNcc1BLVlwOZBopIWRVlt";
-
+var calcBmi = require('bmi-calc');
 
 function sendText(sender, text) {
     let messageData = {text: text}
@@ -20,26 +20,6 @@ function sendText(sender, text) {
         }
     })
   } 
-
-
-function sendMessage2(sender, text) {
-    let messageData = {text: text}
-    request({
-        url: 'https://graph.facebook.com/v2.11/me/messages',
-        qs: {access_token: token},
-        method: 'POST',
-        json: {
-            recipient: {id: sender},
-            message: messageData 
-        }
-    }, function(error, response, body) {
-        if(error) {
-            console.log('sending error')
-        } else if(response.body.error) {
-            console.log('response body error')
-        }
-    })
-}
 
 
 function sendArticleMessage(sender) {
