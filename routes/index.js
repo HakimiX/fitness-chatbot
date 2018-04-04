@@ -54,11 +54,6 @@ router.post('/webhook/', function (req, res) {
                 case "stop":
                     platform.sendText(sender, "jeg stopper");
                     break;
-                case "bmi":
-                    callWithAI(text, function(err, intent) {
-                        handleQuantityDistance(quantity, distance, sender);
-                    })
-                    break;
                 default:
                     callWithAI(text, function (err, intent) {
                         handleIntent(intent, sender);
@@ -108,6 +103,13 @@ function handleIntent(intent, sender) {
     switch (intent) {
         case "greeting":
             platform.sendText(sender, "Hi! how can i help you?");
+            break;
+        case "bmi":
+
+            callWithAI(text, function (err, intent) {
+                handleQuantityDistance(quantity, distance, sender);
+            });
+
             break;
         case "help":
             platform.sendText(sener, "I am here to help!");
