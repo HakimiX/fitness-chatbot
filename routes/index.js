@@ -109,7 +109,8 @@ function handleIntent(intent, sender) {
 
             var height = 1.78;
             var weight = 72.57;
-            var bmi = weight/math.pow(height, 2);
+            var calculate = weight/math.pow(height, 2);
+            var bmi = math.round(calculate * 100) / 100;
 
             platform.sendText(sender, bmi);
 
