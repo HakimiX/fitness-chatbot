@@ -106,9 +106,9 @@ function handleIntent(intent, sender) {
             break;
         case "bmi":
 
-            callWithAI(text, function (err, intent) {
-                handleQuantityDistance(quantity, distance, sender);
-            });
+            console.log(calcBmi(quantity, distance));
+            platform.sendText("BMI: ", calcBmi(quantity, distance));
+
 
             break;
         case "help":
@@ -120,10 +120,7 @@ function handleIntent(intent, sender) {
     }
 }
 
-function handleQuantityDistance(quantity, distance, sender) {
-    console.log(calcBmi(quantity, distance, false));
-    platform.sendText(calcBmi(quantity, distance, false));
-}
+
 
 
 
