@@ -6,10 +6,12 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "async": "^2.6.0",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
+    "fb": "^2.0.0",
     "feed-read": "0.0.1",
     "jade": "~1.11.0",
     "mongodb": "^3.0.1",
