@@ -17,6 +17,19 @@ var token = "EAACptFlfBuIBAPyZAEhU1qt6gaSy3RenZAGlhJiwmkMw5qTJCNvgfkUmFDIAAjhOMI
 var wit_endpoint = 'https://api.wit.ai/message?v=12032018&q=';
 var wit_token = 'D7FKRWLJRNYUKEACKGENJQG7EOLISSMJ';
 
+
+var sessions = {};
+const findOrCreateSession = (sessions, fbid, cb) => {
+
+    if (!sessions[fbid]) {
+        console.log("New Session for:", fbid);
+        sessions[fbid] = {context: {}};
+    }
+
+    cb(sessions, fbid);
+};
+
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('index', {
@@ -38,31 +51,46 @@ router.post('/webhook/', function (req, res) {
         event = req.body.entry[0].messaging[i];
         sender = event.sender.id;
 
-        if (event.message && event.message.text) {
-            text = event.message.text;
 
-            switch (text) {
-                case "artikler":
-                    api.getArticles();
-                    timers.setTimeout(() => platform.sendArticleMessage(sender), 2000);
-                    break;
-                case "generic":
-                    platform.generic(sender);
-                    break;
-                case "stop":
-                    platform.sendText(sender, "jeg stopper");
-                    break;
-                default:
-                    callWithAI(text, function (err, intent) {
-                        handleIntent(intent, sender);
-                    })
-            }
+        findOrCreateSession(sessions, sender, (sessions, sessionId) => {
 
-            //sendText(sender, text);
-        }
-        if (event.postback) {
-            let text = JSON.stringify(event.postback)
-        }
+            async.series(
+                [
+                    function (callback) {
+                        
+                        if (event.message && event.message.text) {
+                            text = event.message.text;
+
+                            switch (text) {
+                                case "artikler":
+                                    api.getArticles();
+                                    timers.setTimeout(() => platform.sendArticleMessage(sender), 2000);
+                                    break;
+                                case "generic":
+                                    platform.generic(sender);
+                                    break;
+                                case "stop":
+                                    platform.sendText(sender, "jeg stopper");
+                                    break;
+                                default:
+                                    callWithAI(text, function (err, intent) {
+                                        handleIntent(intent, sender);
+                                    })
+                            }
+
+                        }
+                        
+                        if (event.postback) {
+                            let text = JSON.stringify(event.postback)
+                        }
+                        
+                    }
+                ], 
+                function(err, result) {
+                    console.log('Session context', sessions[sessionId].context);
+                }
+            );
+        }); 
     }
     res.sendStatus(200);
 });
