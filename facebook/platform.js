@@ -19,7 +19,7 @@ function sendText(sender, text) {
             console.log('response body error')
         }
     })
-  } 
+} 
 
 
 function sendArticleMessage(sender) {
