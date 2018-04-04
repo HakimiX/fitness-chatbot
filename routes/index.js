@@ -108,7 +108,7 @@ function handleIntent(intent, sender) {
 
             var height = 1.78;
             var weight = 72.57;
-            platform.sendText(sender, "bmi: ", calcBmi(weight, height, false));
+            platform.sendText(sender, calcBmi(weight, height, false));
 
             break;
         case "help":
