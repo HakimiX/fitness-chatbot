@@ -3,6 +3,7 @@ var request = require('request');
 var rssReader = require('feed-read');
 var timers = require('timers');
 var schedule = require('node-schedule');
+var calcBmi = require('bmi-calc')
 var http = require('http');
 var router = express.Router();
 
@@ -52,6 +53,11 @@ router.post('/webhook/', function (req, res) {
                     break;
                 case "stop":
                     platform.sendText(sender, "jeg stopper");
+                    break;
+                case "bmi":
+                    callWithAI(text, function(err, intent) {
+                        handleQuantityDistance(quantity, distance, sender);
+                    })
                     break;
                 default:
                     callWithAI(text, function (err, intent) {
@@ -111,6 +117,12 @@ function handleIntent(intent, sender) {
             break;
     }
 }
+
+function handleQuantityDistance(quantity, distance, sender) {
+    platform.sendText(calcBmi(quantity, distance, false));
+}
+
+
 
 
 module.exports = router;

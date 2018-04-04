@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "async": "^2.6.0",
+    "bmi-calc": "^2.0.0",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
