@@ -110,7 +110,7 @@ function handleIntent(intent, sender) {
             var height = 1.78;
             var weight = 72.57;
             var val = 1;
-            var sq = math.square(2);
+            var sq = math.sqrt(2);
             platform.sendText(sender, sq);
 
             break;
