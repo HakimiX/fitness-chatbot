@@ -106,8 +106,7 @@ function handleIntent(intent, sender) {
             break;
         case "BMI":
 
-            var bmi = calcBmi(quanity, distance);
-            platform.sendText(sender, bmi);
+            platform.sendText(sender, "bmi: ", calcBmi(55, 1.7, false));
 
             break;
         case "help":
