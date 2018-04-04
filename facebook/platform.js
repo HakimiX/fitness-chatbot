@@ -258,6 +258,5 @@ function generic(sender) {
 module.exports.sendHelp = sendHelp;  
 module.exports.sendPersonsMessage = sendPersonsMessage;
 module.exports.sendText = sendText;
-module.exports.sendMessage2 = sendMessage2;
 module.exports.sendArticleMessage = sendArticleMessage;
 module.exports.generic = generic;
