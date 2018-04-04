@@ -104,11 +104,10 @@ function handleIntent(intent, sender) {
         case "greeting":
             platform.sendText(sender, "Hi! how can i help you?");
             break;
-        case "bmi":
+        case "BMI":
 
-            console.log(calcBmi(quantity, distance));
-            platform.sendText("BMI: ", calcBmi(quantity, distance));
-
+            var bmi = calcBmi(quantity, distance);
+            platform.sendText("bmi:" , bmi);
 
             break;
         case "help":
