@@ -4,6 +4,7 @@ var rssReader = require('feed-read');
 var timers = require('timers');
 var schedule = require('node-schedule');
 var http = require('http');
+var async = require('async');
 var router = express.Router();
 
 var platform = require('../facebook/platform');
