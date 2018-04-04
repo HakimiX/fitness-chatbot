@@ -4,6 +4,7 @@ var rssReader = require('feed-read');
 var timers = require('timers');
 var schedule = require('node-schedule');
 var calcBmi = require('bmi-calc')
+var math = require('math');
 var http = require('http');
 var router = express.Router();
 
