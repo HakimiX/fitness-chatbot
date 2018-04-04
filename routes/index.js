@@ -108,7 +108,8 @@ function handleIntent(intent, sender) {
 
             var height = 1.78;
             var weight = 72.57;
-            platform.sendText(sender, 1);
+            var val = 1;
+            platform.sendText(sender, val);
 
             break;
         case "help":
