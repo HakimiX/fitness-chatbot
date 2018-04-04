@@ -121,6 +121,7 @@ function handleIntent(intent, sender) {
 }
 
 function handleQuantityDistance(quantity, distance, sender) {
+    console.log(calcBmi(quantity, distance, false));
     platform.sendText(calcBmi(quantity, distance, false));
 }
 
