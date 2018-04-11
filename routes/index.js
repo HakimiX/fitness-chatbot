@@ -1,11 +1,7 @@
 var express = require('express');
 var request = require('request');
-var rssReader = require('feed-read');
 var timers = require('timers');
 var schedule = require('node-schedule');
-var calcBmi = require('bmi-calc')
-var math = require('math');
-var rssReader = require('rss-feed');
 var http = require('http');
 var router = express.Router();
 
@@ -104,14 +100,6 @@ function handleIntent(intent, sender) {
     switch (intent) {
         case "greeting":
             platform.sendText(sender, "Hi! how can i help you?");
-            break;
-        case "BMI":
-
-            var calculate = quantity/math.pow(distance, 2);
-            var bmi = math.round(calculate * 100) / 100;
-
-            platform.sendText(sender, bmi);
-
             break;
         case "help":
             platform.sendText(sender, "I am here to help!");
