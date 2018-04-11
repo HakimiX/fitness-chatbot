@@ -41,10 +41,6 @@ router.post('/webhook/', function (req, res) {
             text = event.message.text;
 
             switch (text) {
-                case "artikler":
-                    api.getArticles();
-                    timers.setTimeout(() => platform.sendArticleMessage(sender), 2000);
-                    break;
                 case "generic":
                     platform.generic(sender);
                     break;
