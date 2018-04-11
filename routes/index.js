@@ -100,6 +100,9 @@ function handleIntent(intent, sender) {
         case "help":
             fbapi.sendText(sender, "I am here to help!");
             break;
+        case "chest":
+            fbapi.sendText(sender, "Chest exercise!");
+            break;
         default:
             fbapi.sendText(sender, "I don't understand :(");
             break;
