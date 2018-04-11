@@ -29,12 +29,12 @@ function sendArticleMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": ArticleBodyObj[0].Headline,
-                    "subtitle": ArticleBodyObj[0].CreateTime,
-                    "image_url": "https://www.altinget.dk/images/article/149600/25205.jpg",
+                    "title": "Barbell Bench Press",
+                    "subtitle": "Compound Movement",
+                    "image_url": "https://www.muscleandperformance.com/.image/c_limit%2Ccs_srgb%2Cq_80%2Cw_630/MTQ1MzY2OTYxNjY4NTY0NzUz/bench-press.webp",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "https://www.altinget.dk/artikel/" + ArticleBodyObj[0].UrlKey,
+                        "url": "https://www.altinget.dk/artikel/",
                         "title": "Læs mere"
                     }, {
                         "type": "postback",
@@ -42,51 +42,12 @@ function sendArticleMessage(sender) {
                         "payload": "Payload for first element in a generic bubble",
                     }],
                 }, {
-                    "title": ArticleBodyObj[1].Headline,
-                    "subtitle": ArticleBodyObj[1].CreateTime,
-                    "image_url": "http://ziremedia.com/wp-content/uploads/2017/04/mobile-optimized-1030x686.jpg",
+                    "title": "Incline Barbell Bench Press",
+                    "subtitle": "Compound Movement",
+                    "image_url": "https://www.muscleandperformance.com/.image/c_limit%2Ccs_srgb%2Cq_80%2Cw_630/MTQ1MzY2OTYxNjY3MTg4NDk3/incline-bench-press.webp",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "https://www.altinget.dk/artikel/" + ArticleBodyObj[1].UrlKey,
-                        "title": "Læs mere",
-                    }, {
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for second element in a generic bubble",
-                    }],
-                }, {
-                    "title": ArticleBodyObj[2].Headline,
-                    "subtitle": ArticleBodyObj[2].CreateTime,
-                    "image_url": "https://www.altinget.dk/images/article/149598/25203.jpg",
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.altinget.dk/artikel/" + ArticleBodyObj[2].UrlKey,
-                        "title": "Læs mere",
-                    }, {
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for second element in a generic bubble",
-                    }],
-                }, {
-                    "title": ArticleBodyObj[2].Headline,
-                    "subtitle": ArticleBodyObj[2].CreateTime,
-                    "image_url": "https://www.altinget.dk/images/article/149597/25202.jpg",
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.altinget.dk/artikel/" + ArticleBodyObj[2].UrlKey,
-                        "title": "Læs mere",
-                    }, {
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for second element in a generic bubble",
-                    }],
-                }, {
-                    "title": ArticleBodyObj[3].Headline,
-                    "subtitle": ArticleBodyObj[3].CreateTime,
-                    "image_url": "https://www.altinget.dk/images/article/149596/25201.jpg",
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.altinget.dk/artikel/" + ArticleBodyObj[3].UrlKey,
+                        "url": "https://www.altinget.dk/artikel/",
                         "title": "Læs mere",
                     }, {
                         "type": "postback",
