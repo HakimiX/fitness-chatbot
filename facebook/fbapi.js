@@ -22,7 +22,7 @@ function sendText(sender, text) {
 } 
 
 
-function sendArticleMessage(sender) {
+function sendChestExercises(sender) {
     let messageData = {
         "attachment": {
             "type": "template",
@@ -219,5 +219,5 @@ function generic(sender) {
 module.exports.sendHelp = sendHelp;  
 module.exports.sendPersonsMessage = sendPersonsMessage;
 module.exports.sendText = sendText;
-module.exports.sendArticleMessage = sendArticleMessage;
+module.exports.sendChestExercises = sendChestExercises;
 module.exports.generic = generic;
