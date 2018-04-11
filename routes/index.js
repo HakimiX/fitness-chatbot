@@ -5,7 +5,7 @@ var schedule = require('node-schedule');
 var http = require('http');
 var router = express.Router();
 
-var platform = require('../facebook/platform');
+var fbapi = require('../facebook/fbapi');
 var api = require('../api/consume');
 
 var mysql = require('mysql');
@@ -42,10 +42,10 @@ router.post('/webhook/', function (req, res) {
 
             switch (text) {
                 case "generic":
-                    platform.generic(sender);
+                    fbapi.generic(sender);
                     break;
                 case "stop":
-                    platform.sendText(sender, "jeg stopper");
+                    fbapi.sendText(sender, "jeg stopper");
                     break;
                 default:
                     callWithAI(text, function (err, intent) {
@@ -95,13 +95,13 @@ function callWithAI(query, callback) {
 function handleIntent(intent, sender) {
     switch (intent) {
         case "greeting":
-            platform.sendText(sender, "Hi! how can i help you?");
+            fbapi.sendText(sender, "Hi! how can i help you?");
             break;
         case "help":
-            platform.sendText(sender, "I am here to help!");
+            fbapi.sendText(sender, "I am here to help!");
             break;
         default:
-            platform.sendText(sender, "I don't understand :(");
+            fbapi.sendText(sender, "I don't understand :(");
             break;
     }
 }
