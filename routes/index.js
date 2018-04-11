@@ -5,6 +5,7 @@ var timers = require('timers');
 var schedule = require('node-schedule');
 var calcBmi = require('bmi-calc')
 var math = require('math');
+var rssReader = require('rss-feed');
 var http = require('http');
 var router = express.Router();
 
@@ -18,7 +19,6 @@ var token = "EAACptFlfBuIBAPyZAEhU1qt6gaSy3RenZAGlhJiwmkMw5qTJCNvgfkUmFDIAAjhOMI
 // WIT AI
 var wit_endpoint = 'https://api.wit.ai/message?v=12032018&q=';
 var wit_token = 'D7FKRWLJRNYUKEACKGENJQG7EOLISSMJ';
-
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
