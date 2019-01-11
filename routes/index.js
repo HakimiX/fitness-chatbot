@@ -10,11 +10,11 @@ var api = require('../api/consume');
 
 var mysql = require('mysql');
 
-var token = "EAACptFlfBuIBAPyZAEhU1qt6gaSy3RenZAGlhJiwmkMw5qTJCNvgfkUmFDIAAjhOMIZAZCzA9WnsEXiKFAGKHmY3j6ZAzKeLx24CE7JLZCMiWHSuxw9s42rmBZAU5MJdPOE0OUaoF8HqnzZAZB4c1imEpc0wf0wunMViTUNcc1BLVlwOZBopIWRVlt";
+var token = "<token>";
 
 // WIT AI
-var wit_endpoint = 'https://api.wit.ai/message?v=12032018&q=';
-var wit_token = 'D7FKRWLJRNYUKEACKGENJQG7EOLISSMJ';
+var wit_endpoint = '<endpoint>';
+var wit_token = '<token>';
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
